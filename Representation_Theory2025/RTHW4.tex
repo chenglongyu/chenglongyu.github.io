@@ -1,0 +1,81 @@
+\documentclass{article}
+%\usepackage[UTF8]{ctex}
+
+\usepackage{tikz-cd}
+
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{amsthm}
+\newtheorem{ex}{Problem}
+
+\newcommand{\C}{\mathbb{C}}
+\newcommand{\Z}{\mathbb{Z}}
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\Q}{\mathbb{Q}}
+\newcommand{\F}{\mathbb{F}}
+
+\newcommand{\tr}{\operatorname{tr}}
+\newcommand{\GL}{\operatorname{GL}}
+\newcommand{\rank}{\operatorname{rank}}
+\newcommand{\im}{\operatorname{im}}
+\newcommand{\Aut}{\operatorname{Aut}}
+
+\title{RT\ HW4 \\ Due 8/6, please submit your solutions to the TAs in tutorial session}
+
+\begin{document}
+
+\maketitle      
+
+\begin{ex}
+ Let $\Z/n\Z$ be the residue classes modulo positive integer $n$. Assume $(\Z/nZ)^\times $ is the set of residue classes coprime to $n$. It forms a group under usual multiplication of residue classes. Prove that the group of automorphisms of $\Z/n\Z$ is isomorphic to the group of units $(\Z/n\Z)^\times$.
+\end{ex}
+
+\begin{ex}
+In this exercise, we will investigate the conjugacy classes of the symmetric group $S_n$. Let $i_1, \cdots, i_l$ be distinct integers in $\{1, \cdots, n\}$. A cycle $(i_1, \cdots, i_l)$ is a permutation of $S_n$ that sends $i_1$ to $i_2$, $i_2$ to $i_3$, ..., $i_{l-1}$ to $i_l$, $i_l$ back to $i_1$, and leaves other integers fixed. The number $l$ is called the length of the cycle. Two cycles $(i_1, \cdots, i_l)$ and $(j_1, \cdots, j_k)$ are disjoint if they do not share any common integers. 
+\begin{enumerate}
+\item Prove that two disjoint cycles commute, i.e., if $(i_1, \cdots, i_l)$ and $(j_1, \cdots, j_k)$ are disjoint cycles in $S_n$, then
+\[(i_1, \cdots, i_l)(j_1, \cdots, j_k) = (j_1, \cdots, j_k)(i_1, \cdots, i_l).\]
+
+\item Prove that every permutation in $S_n$ can be written as a product of disjoint cycles. This product is unique up to the order of the cycles. (Hint: consider the action of $\langle \sigma\rangle$ on $[n]$ and the orbits.)
+
+\item Let $\sigma=(i_1, \cdots, i_l)$ be a cycle of length $l$ in $S_n$. Prove that $\tau \sigma \tau^{-1}=(j_1, \cdots, j_l)$ is a cycle of length $l$ for any $\tau\in S_n$, where $j_k=\tau(i_k)$.
+
+\item Prove that the conjugacy classes of $S_n$ are in one-to-one correspondence with the partitions of $n$.
+\end{enumerate}
+
+\end{ex}
+
+\begin{ex}
+  Write $O(2)$ as a semi-direct product of $SO(2)$ with $\Z/2\Z$,
+   and $O(3)$ as a direct product of $SO(3)$ with $\Z/2\Z$.
+\end{ex}
+
+
+\begin{ex}
+    A rigid motion of the plane is a map $f\colon \R^2\to \R^2$ of the form
+    \[f(x) = Ax+b\]
+    where $A$ is a $2\times 2$ orthogonal matrix, i.e., $A\in O(2)$, and $b\in \R^2$ is a vector in the plane. 
+    The rigid motions of the plane form a group $G$ under composition
+    of maps. Prove that the group $G$ preserves the distance between points in $\R^2$,
+    i.e., for any $f\in G$ and any points $x$ and $y$ in $\R^2$,
+    we have
+    \[d(f(x), f(y)) = d(x, y),\]
+    where $d$ is the usual Euclidean distance in $\R^2$.
+The group $G$ of rigid motions of the plane is isomorphic to the semi-direct product $\R^2 \rtimes O(2)$.
+\end{ex}
+
+\begin{ex}
+Find the number of conjugacy classes and the number of elements in each conjugacy class for the rotation symmetry groups of Platonic solids. You can use the fact that $T\cong A_4$, $O\cong S_4$ and $I\cong A_5$. Can you interpret your result in terms of the geometry of Platonic solids? (Hint: use the geometric interpretation of $BAB^{-1}$ for $A\in SO(3)$ and $B\in SO(3)$.)
+\end{ex}
+
+\begin{ex}
+  Let $P_1, P_2$ be two planes in $\R^3$ intersecting at a line $l$. Show that the composition of the two reflections with respect to $P_1$ and $P_2$ is a rotation around $l$. The rotation angle is twice the angle between the two planes.
+\end{ex}
+
+
+
+
+
+
+
+\end{document}
