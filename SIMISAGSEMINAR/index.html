@@ -1,0 +1,243 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>SIMIS Algebraic Geometry Seminar</title>
+  <meta name="description" content="Algebraic Geometry Seminar at SIMIS. Weekly on Monday or Friday, 10:30–11:30." />
+  <style>
+    :root{
+      --fg:#1b1f24; --muted:#6b7280; --bg:#ffffff; --panel:#ffffff;
+      --border:#e5e7eb; --accent:#0f766e; --accent-weak:#ccfbf1; --radius:12px;
+    }
+    *{box-sizing:border-box}
+    html,body{margin:0;padding:0;background:var(--bg);color:var(--fg);
+      font-family:system-ui,-apple-system,Segoe UI,Roboto,Ubuntu,Cantarell,Noto Sans,Apple Color Emoji,Segoe UI Emoji,Segoe UI Symbol,sans-serif;
+      line-height:1.55}
+    a{color:var(--accent);text-decoration:none}
+    a:hover{text-decoration:underline}
+    header.site-header{border-bottom:1px solid var(--border);padding:2rem 1rem;background:#fafafa}
+    .container{max-width:880px;margin:0 auto;padding:1rem}
+    h1{margin:.1rem 0 .25rem;font-size:1.9rem}
+    .tagline{color:var(--muted);margin:0}
+    .meta{color:var(--muted);margin:.25rem 0 0}
+    nav.nav{margin-top:.75rem;display:flex;gap:1rem;flex-wrap:wrap}
+    nav.nav a{padding:.25rem .5rem;border-radius:6px}
+    nav.nav a:hover{background:var(--accent-weak);text-decoration:none}
+    section{margin:2rem 0}
+    h2{font-size:1.25rem;margin:0 0 .75rem}
+    .talk-list{display:grid;grid-template-columns:1fr;gap:.9rem}
+    .talk{border:1px solid var(--border);border-radius:var(--radius);padding:1rem;background:var(--panel)}
+    .talk header{display:flex;flex-wrap:wrap;gap:.5rem .75rem;align-items:baseline;margin-bottom:.4rem}
+    .date{font-weight:600}
+    .weekday,.time,.location{color:var(--muted)}
+    .talk h3{margin:.1rem 0 .25rem;font-size:1.05rem}
+    .speaker{font-weight:600}
+    details{margin-top:.35rem}
+    details>summary{cursor:pointer;color:var(--accent)}
+    .empty{color:var(--muted);border:1px dashed var(--border);border-radius:var(--radius);padding:1rem}
+    footer.site-footer{border-top:1px solid var(--border);padding:1.25rem 1rem;color:var(--muted);text-align:center;background:#fafafa}
+    .fineprint{font-size:.9rem;margin:.25rem 0 0}
+    @media (min-width:720px){ .talk-list{grid-template-columns:1fr 1fr} }
+  </style>
+</head>
+<body>
+  <header class="site-header">
+    <div class="container">
+      <h1>SIMIS Algebraic Geometry Seminar</h1>
+      <p class="tagline">Weekly on Monday or Friday, 10:30–11:30</p>
+      <p class="meta" id="location-line"></p>
+      <nav class="nav">
+        <a href="#upcoming">Upcoming</a>
+        <a href="#past">Past</a>
+      </nav>
+    </div>
+  </header>
+
+  <main class="container">
+    <section id="upcoming">
+      <h2>Upcoming Talks</h2>
+      <div id="upcoming-list" class="talk-list" aria-live="polite"></div>
+      <p id="no-upcoming" class="empty" hidden>No upcoming talks are listed yet. Please check back soon.</p>
+    </section>
+
+    <section id="past">
+      <h2>Past Talks</h2>
+      <div id="past-list" class="talk-list"></div>
+      <p id="no-past" class="empty" hidden>No past talks yet.</p>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <p>For questions or to propose a talk, please contact the organizers.</p>
+    <p class="fineprint">Last updated <span id="last-updated"></span></p>
+  </footer>
+
+  <!--
+    Edit talks inside the JSON below.
+    Required per talk: date (YYYY-MM-DD), speaker, title, abstract.
+    Optional: weekday ("Monday"/"Friday"), time (defaults to 10:30–11:30), location, links [{label,url}]
+    The page will automatically split talks into Upcoming and Past by date.
+  -->
+  <script type="application/json" id="talks-data">
+  {
+    "seminar": {
+      "location": "SIMIS · Room 1210"
+    },
+    "talks": [
+      {
+        "date": "2025-09-05",
+        "weekday": "Friday",
+        "time": "10:30–11:30",
+        "speaker": "TBA ()",
+        "title": "TBA",
+        "abstract": "We review basic notions of derived categories and discuss their applications to the study of coherent sheaves on projective varieties.",
+        "location": "SIMIS · Room 1210",
+        "links": []
+      },
+      {
+        "date": "2025-09-08",
+        "weekday": "Monday",
+        "time": "10:30–11:30",
+        "speaker": "Prof. TBA (Institute)",
+        "title": "TBA",
+        "abstract": "",
+        "location": "SIMIS · Room 201",
+        "links": []
+      }
+    ]
+  }
+  </script>
+
+  <script>
+  (function(){
+    const dataEl = document.getElementById('talks-data');
+    const upcomingList = document.getElementById('upcoming-list');
+    const pastList = document.getElementById('past-list');
+    const noUpcoming = document.getElementById('no-upcoming');
+    const noPast = document.getElementById('no-past');
+    const updated = document.getElementById('last-updated');
+    const locationLine = document.getElementById('location-line');
+
+    try {
+      const data = JSON.parse(dataEl.textContent || '{}');
+
+      if (data?.seminar?.location) {
+        locationLine.textContent = data.seminar.location;
+      } else {
+        locationLine.remove();
+      }
+      if (updated) {
+        updated.textContent = new Date().toLocaleDateString();
+      }
+
+      const talks = Array.isArray(data?.talks) ? data.talks.slice() : [];
+      talks.forEach(t => { t._dateObj = t.date ? new Date(t.date) : null; });
+      talks.sort((a,b) => {
+        if (!a._dateObj && !b._dateObj) return 0;
+        if (!a._dateObj) return 1;
+        if (!b._dateObj) return -1;
+        return a._dateObj - b._dateObj;
+      });
+
+      const today = new Date(); today.setHours(0,0,0,0);
+      const upcoming = talks.filter(t => t._dateObj && t._dateObj >= today);
+      const past = talks.filter(t => !t._dateObj || t._dateObj < today).reverse();
+
+      if (upcoming.length === 0) {
+        noUpcoming.hidden = false;
+      } else {
+        upcoming.forEach(t => upcomingList.appendChild(renderTalk(t)));
+      }
+
+      if (past.length === 0) {
+        noPast.hidden = false;
+      } else {
+        past.forEach(t => pastList.appendChild(renderTalk(t)));
+      }
+    } catch (e) {
+      console.error('Failed to parse talks data', e);
+      noUpcoming.hidden = false;
+      noUpcoming.textContent = 'Could not load talks. Please try again later.';
+    }
+
+    function renderTalk(talk){
+      const el = document.createElement('article');
+      el.className = 'talk';
+
+      const header = document.createElement('header');
+
+      const dateSpan = document.createElement('span');
+      dateSpan.className = 'date';
+      dateSpan.textContent = talk.date ? formatDate(talk.date) : 'TBA';
+      header.appendChild(dateSpan);
+
+      if (talk.weekday) {
+        const wd = document.createElement('span');
+        wd.className = 'weekday';
+        wd.textContent = `(${talk.weekday})`;
+        header.appendChild(wd);
+      }
+
+      const timeSpan = document.createElement('span');
+      timeSpan.className = 'time';
+      timeSpan.textContent = talk.time || '10:30–11:30';
+      header.appendChild(timeSpan);
+
+      if (talk.location) {
+        const loc = document.createElement('span');
+        loc.className = 'location';
+        loc.textContent = `· ${talk.location}`;
+        header.appendChild(loc);
+      }
+
+      el.appendChild(header);
+
+      const h3 = document.createElement('h3');
+      h3.textContent = talk.title || 'TBA';
+      el.appendChild(h3);
+
+      const speaker = document.createElement('div');
+      speaker.className = 'speaker';
+      speaker.textContent = talk.speaker || 'Speaker TBA';
+      el.appendChild(speaker);
+
+      if (talk.abstract) {
+        const details = document.createElement('details');
+        const summary = document.createElement('summary');
+        summary.textContent = 'Abstract';
+        details.appendChild(summary);
+        const p = document.createElement('p');
+        p.textContent = talk.abstract;
+        details.appendChild(p);
+        el.appendChild(details);
+      }
+
+      if (talk.links && Array.isArray(talk.links) && talk.links.length) {
+        const ul = document.createElement('ul');
+        talk.links.forEach(l => {
+          const li = document.createElement('li');
+          const a = document.createElement('a');
+          a.href = l.url;
+          a.textContent = l.label || l.url;
+          a.target = '_blank';
+          a.rel = 'noopener';
+          li.appendChild(a);
+          ul.appendChild(li);
+        });
+        el.appendChild(ul);
+      }
+
+      return el;
+    }
+
+    function formatDate(iso){
+      try{
+        const d = new Date(iso);
+        return d.toLocaleDateString(undefined, {year:'numeric', month:'short', day:'numeric'});
+      }catch{ return iso; }
+    }
+  })();
+  </script>
+</body>
+</html>
