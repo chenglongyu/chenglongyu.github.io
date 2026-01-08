@@ -1,0 +1,163 @@
+\documentclass{article}
+%\usepackage[UTF8]{ctex}
+
+\usepackage{tikz-cd}
+
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{amsthm}
+\newtheorem{ex}{Problem}
+
+\newcommand{\C}{\mathbb{C}}
+\newcommand{\Z}{\mathbb{Z}}
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\Q}{\mathbb{Q}}
+\newcommand{\F}{\mathbb{F}}
+
+
+
+\newcommand{\tr}{\operatorname{tr}}
+\newcommand{\GL}{\operatorname{GL}}
+\newcommand{\SL}{\operatorname{SL}}
+\newcommand{\rank}{\operatorname{rank}}
+\newcommand{\im}{\operatorname{im}}
+\newcommand{\Aut}{\operatorname{Aut}}
+
+\title{IMSC 2048\ HW1 \\ Due 2026/1/15}
+
+
+\begin{document}
+\maketitle
+
+\section{Useful practices}
+Please submit solutions to the following problems in this section. Some problems help you to review the material we have learned, and some problems introduce useful concepts and theorems not covered in class.
+\begin{ex}
+  \label{Gram-Schmidt}
+  Practice the Gram-Schmidt process and the $QR$ decomposition. You can choose either one of the following two problems to solve.
+\begin{enumerate}
+\item Let $V=P_{\leq 2}(\R)$ be the vector space of real polynomials with degree at most $2$. Define an inner product on $V$ by
+\[
+\langle f, g\rangle = \int_0^1 f(x)g(x) \, dx\]
+Given basis $1, x, x^2$ for $V$, use the Gram-Schmidt process to find an orthonormal basis for $V$.
+\item Calculate the $QR$ decomposition for the matrix
+  \[A = \begin{pmatrix}
+    3 & 2 &100\\
+    4 & 0 &0\\
+    0 & 0 & -5
+  \end{pmatrix}.\]
+\end{enumerate}
+\end{ex}
+
+\begin{ex}
+  Prove the uniqueness of the $QR$ decomposition: if $A$ is an $n \times n$ invertible real matrix  then there exists a unique $n \times n$ orthogonal matrix $Q$ and a unique $n \times n$ upper triangular matrix $R$ with positive diagonal entries such that $A = QR$. (You only need to prove the uniqueness part; the existence part is given by the Gram-Schmidt process.)
+\end{ex}
+
+
+
+\begin{ex}
+\label{prob: nondegenerate symmetric form}
+Let $V$ be a finite-dimensional vector space over field $F$. Define a symmetric form on $V$ to be a bilinear form $\langle \cdot, \cdot \rangle: V \times V \to F$ similar as the real case. We call the symmetric form \textit{non-degenerate} if for any $v \in V$, $\langle v, w \rangle = 0$ for all $w \in V$ implies $v = 0$.
+\begin{enumerate}
+  \item Show that the symmetric form $\langle \cdot, \cdot \rangle$ is non-degenerate if and only if for some (and hence any) basis $\{v_1, \ldots, v_n\}$ of $V$, the Gram matrix $A = (\langle v_i, v_j \rangle)_{1 \leq i, j \leq n}$ is invertible.
+  \item Assume $V$ has a nondegenerate symmetric form $\langle \cdot, \cdot \rangle$. Let $W$ be a subspace of $V$. Define the orthogonal complement of $W$ to be
+  \[W^\perp = \{v \in V: \langle v, w \rangle = 0 \text{ for all } w \in W\}.\]
+  Prove that $W\bigoplus W^\perp = V$ if and only if the restriction of $\langle \cdot, \cdot \rangle$ on $W$ is non-degenerate.
+
+  \item When $\R$ is the base field, show that a positive definite symmetric form is non-degenerate.
+  \item For an inner product space $V$ over $\R$, show that for any subspace $W$ of $V$, $W \bigoplus W^\perp = V$.
+  
+  \item In four-dimensional Minkowski space with the Lorentz form, find an one-dimensional subspace $W$ such that $W$ and  $W^\perp$ do not form a direct sum of the whole space.
+\end{enumerate}
+
+\end{ex}
+
+\begin{ex}
+  \label{Cauchy-Schwarz}
+  In this problem, you will prove the Cauchy-Schwarz inequality in an inner product space $V$. The norm of an inner product space is defined by $\|u\| = \sqrt{\langle u, u \rangle}$. The Cauchy-Schwarz inequality states that for any $u, v \in V$,
+  \[|\langle u, v \rangle| \leq \|u\| \cdot \|v\|.\]
+  Moreover, equality holds if and only if $u$ and $v$ are linearly dependent. You can choose any one of the following two methods to prove it.
+  \begin{enumerate}
+   
+    \item Assume $v \neq 0$. Consider the quadratic function of $\lambda$ 
+        \[f(\lambda) = \langle u-\lambda v, u-\lambda v \rangle\]
+    Show that this function is non-negative and deduce the Cauchy-Schwarz inequality from this.Show that equality holds if and only if $u$ and $v$ are linearly dependent.
+
+    \item There is another method to reduce the Cauchy-Schwarz inequality to two dimensional case. Assume $u$ and $v$ are linearly independent (otherwise the inequality is trivial). Let $W = \operatorname{span}\{u, v\}$. Show that the Cauchy-Schwarz inequality holds in $V$ if it holds in $W$. Then prove the Cauchy-Schwarz inequality in two-dimensional inner product space by directly considering the standard inner product on $\R^2$. 
+  \end{enumerate}
+\end{ex}
+
+\begin{ex}
+  We call a symmetric matrix $A$ positive definite if it is the Gram matrix of any positive definite symmetric form. 
+  \begin{enumerate}
+    \item Prove that a symmetric matrix $A$ is positive definite if and only if there exists an invertible matrix $P$ such that $A = P^T P$.
+    \item Show that if $A$ is positive definite, then its determinant is positive.
+    \item Prove that a two by two symmetric matrix is positive definite if and only if it has positive trace and positive determinant.
+  \end{enumerate}
+\end{ex}
+
+\begin{ex}
+  In the following, you will prove the criterion for positive definiteness using principal minors. A principal minor of a matrix $A$ is the determinant of a square submatrix obtained by deleting certain rows and the corresponding columns. A leading principal minor is a principal minor obtained by deleting the last $n-k$ rows and columns for some $k$. In the following, show that a symmetric matrix $A$ is positive definite if and only if all its leading principal minors are positive. 
+
+  \begin{enumerate}
+    \item Show that if $A$ is positive definite, then all its principal minors are positive. (Hint: consider the restriction of the corresponding symmetric form on the subspace spanned by the first $k$ basis vectors.)
+    \item Use induction to show that if all leading principal minors of $A$ are positive, then matrix $A$ is positive definite. (Hint: use problem \ref{prob: nondegenerate symmetric form} and induction.)
+  \end{enumerate}
+\end{ex}
+
+
+\begin{ex}
+  Let $A$ be a real symmetric matrix where the diagonal elements are all $2$, the elements on the two sub-diagonals are all $-1$, and all other elements are $0$. Prove that $A$ is positive definite.
+\end{ex}
+
+\begin{ex}
+	Artin chapter 8 1.1. Show that a bilinear form $\langle$,$\rangle$ on a real vector space $V$ is a sum of a symmetric form and a skew-symmetric form. (skew-symmetric means alternating)
+\end{ex}
+
+\begin{ex}
+	Let $g$ be a bilinear form on a real vector space $V$. Prove that if $g$ satisfies $g(x, y)=0$ if and only if $g(y,x)=0$, then $g$ is either symmetric or alternating.
+\end{ex}
+
+\section{Optional problems}
+If you would like to try some additional problems, you can find them here and you do not need to submit them. 
+\begin{ex}
+  Prove that the Hilbert matrix of order $n$, $$H_n=(\frac{1}{i+j-1})_{n\times n}$$ is a positive definite matrix. (Hint: Use the symmetric form in Problem \ref{Gram-Schmidt} (1).)
+\end{ex}
+
+\begin{ex}
+  Prove the reversed Cauchy-Schwarz inequality in Minkowski space:
+
+For all $v=(v_0, v_1, \dots, v_n), w=(w_0, w_1, \dots, w_n) \in \mathbb{R}^{n+1}$ satisfying
+\[ v_0^2 - v_1^2 - \cdots - v_n^2 > 0 \text{ and } w_0^2 - w_1^2 - \cdots - w_n^2 > 0, \]
+prove the following inequality
+\begin{equation*}
+(v_0^2 - v_1^2 - \cdots - v_n^2)(w_0^2 - w_1^2 - \cdots - w_n^2) \leq (v_0w_0 - v_1w_1 - \cdots - v_nw_n)^2
+\end{equation*}
+and determine the necessary and sufficient condition for equality to hold.
+
+In terms of the Lorentz form $\langle v, w \rangle = v_0w_0 - v_1w_1 - \cdots - v_nw_n$, the inequality can be rewritten as
+\begin{equation*}
+\langle v, v \rangle \langle w, w \rangle \leq \langle v, w \rangle^2.
+\end{equation*}
+when $\langle v, v \rangle > 0$ and $\langle w, w \rangle > 0$ (in physics $v$ and $w$ are called time-like vectors).
+
+Hint: Use similar method as in Problem \ref{Cauchy-Schwarz} (2). 
+\end{ex}
+
+
+\begin{ex}[Challenge]
+For a graph $\Gamma$ with vertices $\{v_1,\cdots,v_n\}$, consider the $n\times n$ real symmetric matrix defined by
+$A_\Gamma=(a_{ij})_{n\times n},$
+where $a_{ij}=2$ when $i=j$, $a_{ij}=-1$ when $i\neq j$ and $v_i,v_j$ are adjacent (connected by an edge), and $a_{ij}=0$ otherwise.
+Prove that for the following graphs $\Gamma$, $A_\Gamma$ is positive definite:
+
+\begin{figure}[h] 
+  \centering
+  \includegraphics[width=9cm]{Simply_Laced_Dynkin_Diagrams}
+  \caption{Simply Laced Dynkin Diagrams}
+  \label{fig:my_label}
+\end{figure}
+
+\end{ex}
+
+
+\end{document}
