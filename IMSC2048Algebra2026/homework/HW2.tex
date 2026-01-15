@@ -1,0 +1,173 @@
+\documentclass{article}
+%\usepackage[UTF8]{ctex}
+
+\usepackage{tikz-cd}
+
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{amsthm}
+\newtheorem{ex}{Problem}
+
+\newcommand{\C}{\mathbb{C}}
+\newcommand{\Z}{\mathbb{Z}}
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\Q}{\mathbb{Q}}
+\newcommand{\F}{\mathbb{F}}
+
+
+
+\newcommand{\tr}{\operatorname{tr}}
+\newcommand{\GL}{\operatorname{GL}}
+\newcommand{\SL}{\operatorname{SL}}
+\newcommand{\rank}{\operatorname{rank}}
+\newcommand{\im}{\operatorname{im}}
+\newcommand{\Aut}{\operatorname{Aut}}
+
+\title{IMSC 2048\ HW2 \\ Due 2026/1/22}
+
+
+\begin{document}
+\maketitle
+
+
+\section{Excercises}
+
+\subsection{Useful Exercises}
+You are required to submit the solutions to problems in this subsection.
+
+\begin{ex}
+  Prove that any skew-symmetric matrix $A \in M_n(\R)$ can be orthogonally similar to a block diagonal matrix with blocks of the form
+  $$\begin{pmatrix}
+0 & -\lambda \\ 
+\lambda & 0 \\
+\end{pmatrix}$$
+  and possibly a $0$ block if $n$ is odd. Use this to show that any skew-symmetric matrix over $\R$ is congruent to a block diagonal matrix with blocks of the form 
+  $$\begin{pmatrix}
+0 & -1\\ 
+1 & 0 \\
+\end{pmatrix}$$ and possibly some $0$ block.
+\end{ex}
+
+
+
+\begin{ex}
+  Let $V$ be the linear space consisting of all skew-symmetric real matrices of order $n$.
+  \begin{enumerate}
+    \item For any $A\in V$, prove that $I+A$ is invertible.
+    \item For any $A\in V$, define $f(A)=(I-A)(I+A)^{-1}$. Prove that $f(A)$ is an orthogonal matrix.
+    \item Give a characterization of the image of $f\colon V\to \mathrm{O}(n)$ in terms of eigenvalues, that is, which matrices can be written in the form $(I-A)(I+A)^{-1}$ for some $A\in V$.
+  \end{enumerate}
+\end{ex}
+
+\begin{ex}
+  Let $A$ be $2\times 2$ real symmetric matrix 
+
+  $$A=\begin{pmatrix}a & b \\ 
+b & c \\
+\end{pmatrix}.$$
+  Write down an orthogonal matrix $Q$ which diagonalizes $A$ in terms of $a,b,c$.
+\end{ex}
+
+\begin{ex}
+Consider the groups $\mathrm{O}(2)$, its subgroup $\mathrm{SO}(2)$ and group $\mathrm{SO}(3)$. Determine whether the following statements are correct. If correct, prove it; if incorrect, provide a counterexample:
+\begin{enumerate}
+  %\item The subgroup $SO(2)$ is a normal subgroup of $O(2)$.
+  \item Two elements in the group $\mathrm{O}(2)$ are conjugate if and only if they have the same trace.
+  \item Two elements in the group $\mathrm{SO}(2)$ are conjugate in the group $\mathrm{SO}(2)$ if and only if they have the same trace.
+  \item Two elements in the group $\mathrm{SO}(2)$ are conjugate in the group $\mathrm{O}(2)$ if and only if they have the same trace.
+  \item Two elements in the group $\mathrm{SO}(3)$ are conjugate if and only if they have the same trace.
+\end{enumerate}
+\end{ex}
+
+\begin{ex}[Cartan–Dieudonn\'e theorem]
+  \noindent
+  Prove that any orthogonal transformation of Euclidean space $(V, \langle \cdot, \cdot \rangle)$ can be expressed as a composition of at most $\dim V$ reflections. 
+
+  (The nontrivial part of the original theorem is to show this also holds for any non-degenerate symmetric bilinear form over a field of characteristic not equal to $2$.)
+\end{ex}
+
+\begin{ex}[Courant--Fischer--Weyl Min-Max Principle]
+  \label{Courant--Fischer--Weyl Min-Max Principle}\index{Min-Max Principle}
+  \noindent
+You may choose to prove either part (1) or part (2). 
+  \begin{enumerate}
+    \item 
+Let $(E,\langle\cdot,\cdot\rangle)$ be an $n$-dimensional real inner product space. Suppose $T$ is a self-adjoint transformation on $E$ with real eigenvalues $\lambda_1\geq \lambda_2\geq \cdots \geq \lambda_n$. Prove that the eigenvalues of $T$ can be characterized by the following min-max method:
+$$
+\lambda_{k}=\min \left\{\max \left\{\langle T(x), x\rangle: x \perp W_{k},|x|=1\right\}: W_{k} \subset E \text{ is a subspace}, \dim W_{k}=k-1\right\}
+$$
+Here, for a fixed $(k-1)$-dimensional subspace $W_k$, we first compute the maximum value
+$$\max \left\{\langle T(x), x\rangle: x \perp W_{k},|x|=1\right\}.$$
+Then we vary $W_k$ over all $(k-1)$-dimensional subspaces and take the minimum of these maximum values.
+
+\item Alternatively, you may prove the following special case: Let $A$ be an $n \times n$ real symmetric matrix and $v$ be an arbitrary $n$-dimensional real column vector, where $|v|$ denotes the vector length under the standard inner product. Let $\lambda_1, \lambda_2, \cdots, \lambda_n$ be all eigenvalues of $A$. Prove that:
+  \[
+    |Av|\leq \max\{|\lambda_1|, |\lambda_2|, \cdots, |\lambda_n|\} |v|.
+  \]
+\end{enumerate}
+\end{ex}
+
+  
+
+\subsection{Optional problems}
+You do not need to hand in these problems, but you are encouraged to discuss and try them.
+\begin{ex}[Outer automorphisms of $\mathrm{SO}(n, \R)$]
+  \label{outer automorphisms of so(n)}
+  An automorphism of a group $G$ is called an \emph{inner automorphism} if it is of the form $g\mapsto hgh^{-1}$ for some fixed $h\in G$. An automorphism which is not inner is called an \emph{outer automorphism}. Consider the automorphism of $\mathrm{SO}(n, \R)$ defined by $A\mapsto PAP^{-1}$ where $P\in \mathrm{O}(n, \R)$ with $\det P=-1$. Is this an inner automorphism or an outer automorphism? Prove your answer. (The answer may depend on $n$.)
+\end{ex}
+
+\begin{ex}[Challenge Problem]
+ \label{standard form for lorentz transformation}
+ You will obtain a standard form for Lorentz transformations on $\mathbb R^4$.
+Let $e_i$ $(i=1, \ldots 4)$ be the standard basis for $\mathbb R^4$. Consider 
+the symmetric bilinear on $\mathbb R^4$ defined by 
+$$\langle x, y\rangle=x_1y_1+x_2y_2+x_3y_3-x_4y_4.$$ 
+A basis $f_i$ $(i=1, \ldots 4)$ of $\mathbb R^4$ is called orthonormal if
+$$\langle f_1, f_1\rangle=\langle f_2, f_2\rangle=\langle f_3, f_3\rangle=1, \quad \langle f_4, f_4\rangle=-1, \quad \langle f_i, f_j\rangle=0\hbox{ if } i\not=j.$$
+Suppose $T$ is a Lorentz transformation on $\mathbb R^4$, that is, $T$ is a linear transformation such that  
+$$\langle Tx, Ty\rangle=\langle x, y\rangle$$ 
+for all $x, y\in\mathbb R^4$. Prove that there exists an orthonormal basis of $\mathbb R^4$
+such that the matrix of $T$ is block diagonal with blocks of the following types:
+\begin{enumerate}
+\item A block of order 1 with entry $\pm 1$. 
+\item A block of order 2 of the form 
+$$\left(\begin{array}{cc}
+\cos \theta&-\sin\theta\\
+\sin\theta&\cos\theta
+\end{array}\right).$$
+\item a block of order 2 of the form 
+$$\pm\left(\begin{array}{cc}
+\cosh \theta&\sinh\theta\\
+\sinh\theta&\cosh\theta
+\end{array}\right) \quad 
+\hbox{ or }\pm\left(\begin{array}{cc}
+\cosh \theta&\sinh\theta\\
+-\sinh\theta&-\cosh\theta
+\end{array}\right).$$
+\item A block $A$ of order $3$ with eigenvalue $\lambda= \pm 1$ so that $(A-\lambda I)^3=0$
+but $(A-\lambda I)^2\not= 0$.
+
+\end{enumerate}
+\end{ex}
+
+\begin{ex}
+    If the Lorentz transformation $T$ in Problem \ref{standard form for lorentz transformation} is replaced by a transformation satisfying $$\langle Tx, y\rangle=-\langle x, Ty\rangle$$ can you obtain a similar result?  State the result and prove it.
+\end{ex}
+
+  \begin{ex}[Cauchy Interlacing Theorem]
+      \label{Cauchy Interlacing Theorem}\index{Cauchy Interlacing Theorem}
+      \noindent
+    Let $A$ be an $n \times n$ real symmetric matrix, and let $B$ be an $m \times m$ principal submatrix of $A$, where $m < n$. If the eigenvalues of $A$ are $\lambda_1 \geqslant \lambda_2 \geqslant \cdots \geqslant \lambda_n$, and the eigenvalues of $B$ are $\mu_1 \geqslant \mu_2 \geqslant \cdots \geqslant \mu_m$, then for all $1 \leqslant i \leqslant m$, we have
+    \[
+\lambda_i \geqslant \mu_i \geqslant \lambda_{i+n-m}.
+\]
+(Hint: Use the Courant-Fischer-Weyl min-max principle from Problem \ref{Courant--Fischer--Weyl Min-Max Principle}.)
+\end{ex}
+
+\begin{ex}[Sylvester's Criterion]
+Use the Cauchy interlacing theorem to prove Sylvester's criterion: A symmetric matrix is positive definite if and only if all its leading principal minors are positive.
+\end{ex}
+
+
+
+\end{document}
