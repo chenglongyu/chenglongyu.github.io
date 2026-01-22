@@ -1,0 +1,158 @@
+\documentclass{article}
+%\usepackage[UTF8]{ctex}
+
+\usepackage{tikz-cd}
+
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{amsthm}
+\newtheorem{ex}{Excercise}
+
+\newcommand{\C}{\mathbb{C}}
+\newcommand{\Z}{\mathbb{Z}}
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\Q}{\mathbb{Q}}
+\newcommand{\F}{\mathbb{F}}
+
+
+\newcommand{\tr}{\operatorname{tr}}
+\newcommand{\GL}{\operatorname{GL}}
+\newcommand{\SL}{\operatorname{SL}}
+\newcommand{\rank}{\operatorname{rank}}
+\newcommand{\im}{\operatorname{im}}
+\newcommand{\Aut}{\operatorname{Aut}}
+
+\title{IMSC 2048\ HW3 \\ Due 2026/1/29}
+
+
+\begin{document}
+\maketitle
+
+
+\section{Excercises}
+
+\subsection{Useful Exercises}
+
+\begin{ex}
+  Suppose $A$ is an invertible real square matrix with singular values $\sigma_1, \cdots, \sigma_n$. Find the singular values of $A^{-1}$.
+\end{ex}
+
+
+\begin{ex}[Polar Decomposition]
+In this problem, you will prove the polar decomposition of an invertible complex matrix using the singular value decomposition.
+  
+\begin{enumerate}
+\item Try to state without proof the singular value decomposition theorem for complex matrices similar to the one stated in the class for real matrices. 
+\item Use it to prove the following: Let $A$ be an $n\times n$ invertible complex matrix. Prove that there exist unitary matrices $U\in \mathrm{U}(n)$ and $P$ is a positive definite hermitian matrix such that $A=UP$. This is called the polar decomposition of $A$.
+\item Show that the polar decomposition is unique. (This shows that $\GL(n,\C)$ is homeomorphic to $\mathrm{U}(n)\times \mathcal{H}_n^{+}$ where $\mathcal{H}_n^{+}$ is the set of all positive definite hermitian matrices, a convex cone in the vector space of all hermitian matrices.)
+\end{enumerate}
+\end{ex}
+
+
+\begin{ex}
+Artin Chapter 8, Excercise 6.20
+
+Prove the circulant, the matrix below, is normal.
+$$C=\begin{bmatrix}
+c_0 & c_{1} & c_{2} & \cdots & c_{n}\\
+c_{n} & c_0 & c_{1} & \cdots & c_{n-1}\\
+c_{n-1} & c_{n} & c_0 & \cdots & c_{n-2}\\
+\vdots & \vdots & \vdots & \ddots & \vdots\\
+c_{1} & c_{2} & c_{3} & \cdots & c_0
+\end{bmatrix}$$
+
+(How to diagonalize it? Hint: write $C$ as a polynomial in the shift matrix. see Artin Chapter 8, Excercise 6.19)
+\end{ex}
+
+\begin{ex}
+Prove that for any square submatrix of a unitary matrix, the modulus of any of its complex eigenvalues does not exceed $1$.
+\end{ex}
+
+\begin{ex}
+\begin{enumerate}
+     \item If $A$ and $B$ are normal matrices, is $AB$ necessarily normal? What if we additionally assume $AB=BA$?
+      
+      \item Determine if the matrix $A=\begin{pmatrix}
+        \sqrt{-1} & -\sqrt{-1}\\
+        -\sqrt{-1} & \sqrt{-1}
+      \end{pmatrix}$ is normal, Hermitian, or unitary.
+\end{enumerate}  
+\end{ex}
+
+
+\begin{ex}[Characterization of Normal Matrices in terms of Singular Values]
+Let $A$ be an $n \times n$ complex matrix. Let $\sigma_i(A)$ denote the $i$-th singular value of $A$ (such that $\sigma_1(A)\ge \cdots \ge \sigma_n(A)\ge 0$), and let $\lambda_1, \cdots, \lambda_n$ be the complex eigenvalues of $A$ (counted with algebraic multiplicity).
+Prove that $\sum\limits_{i=1}^n\sigma_i(A)^2\ge \sum\limits_{i=1}^n |\lambda_i|^2$, with equality if and only if $A$ is a normal matrix.
+
+(Hint: Recall that any complex matrix can be conjugate to upper triangular matrix by an invertible matrix, by choosing eigenvectors and induction. Prove that actually a unitary matrix can do this job, then compare the Frobenius norms of both sides.)
+\end{ex}
+
+\begin{ex}
+Lang Algebra Chapter XV, 1.
+
+Here we choose $\sigma$ to be complex conjugation.
+\begin{enumerate}
+	\item 
+ Let $E$ be a finite dimensional space over the complex numbers, and let
+$$
+h: E \times E \rightarrow \mathbb{C}
+$$
+be a hermitian form. Write
+$$
+h(x, y)=g(x, y)+i f(x, y)
+$$
+where $g, f$ are real valued. Show that $g, f$ are $\mathbb{R}$-bilinear, $g$ is symmetric, $f$ is alternating.
+\item  Let $E$ be finite dimensional over $\mathbf{C}$. Let $g: E \times E \rightarrow \mathbf{C}$ be $\R$-bilinear. Assume that for all $x \in E$, the map $y \mapsto g(x, y)$ is $\mathbb{C}$-linear, and that the $\R$-bilinear form
+$$
+f(x, y)=g(x, y)-g(y, x)
+$$
+is real-valued on $E \times E$. Show that there exists a hermitian form $h$ on $E$ and a symmetric $\C$-bilinear form $\psi$ on $E$ such that $2 i g=h+\psi$. Show that $h$ and $\psi$ are uniquely determined.
+\end{enumerate}
+\end{ex}
+
+\begin{ex}
+    Let $X=A+\sqrt{-1}B$ be a complex square matrix, where $A,B\in M_n(\R)$. Prove that $X$ is a unitary matrix if and only if
+    $$\begin{pmatrix}
+      A & -B\\
+      B & A
+        \end{pmatrix}$$
+     is an orthogonal matrix.
+\end{ex}
+
+
+  
+
+\subsection{Optional problems}
+
+\begin{ex}
+	Prove the additive inequality of singular values. Let $A, B$ be two $m\times n$ real matrices. Prove that
+	$$
+	\sigma_{k+l-1}(A+B)\leq \sigma_k(A)+\sigma_l(B)
+	$$
+	for $k+l-1\leq \min(m,n)$.
+\end{ex}
+
+\begin{ex}
+  Let $(V,\omega)$ be a symplectic space if $\omega$ is a non-degenerate skew-symmetric form on the $F$-vector space $V$. An $F$-linear transformation $T$ is called a symplectic transformation if $\omega(T(v), T(w))=\omega(v, w)$. A basis $(\alpha_1, \cdots, \alpha_n, \beta_1, \cdots, \beta_n)$ is called a symplectic basis if $\omega(\alpha_i, \beta_j)=\delta_{ij}$ and $\omega(\alpha_i, \alpha_j)=\omega(\beta_i, \beta_j)=0$. When $F=\C$, prove that for any symplectic transformation $T$ of a symplectic space, there exists a symplectic basis such that the matrix of $T$ under this basis has the form
+  $$\begin{bmatrix}
+    B_n & 0_n\\
+    0_n & B_n^T
+  \end{bmatrix}$$
+  where $B_n$ is an $n$-dimensional Jordan normal form.
+\end{ex}
+
+
+\begin{ex}
+  Prove the following inequality between singular values and eigenvalues. Let $A$ be an $n\times n$ complex matrix with eigenvalues $\lambda_1, \cdots, \lambda_n$ (counted with algebraic multiplicity) and singular values $\sigma_1\ge \sigma_2\ge \cdots \ge \sigma_n\ge 0$. Then for any $k=1, \cdots, n$,
+  $$|\lambda_1\lambda_2\cdots \lambda_k|\le \sigma_1\sigma_2\cdots \sigma_k.$$
+\end{ex}
+
+\begin{ex}[Challenge Problem]
+  Let $A$ be a real square matrix of order $n$, and let the eigenvalues of $A^T A$ be $\lambda_1^2, \cdots, \lambda_n^2$, where $0 \leq \lambda_i \leq 1$ for $i=1, 2, \cdots, n$. Prove that:
+
+$$
+\det(I_n-A) \geq\left(1-\lambda_1\right)\left(1-\lambda_2\right) \cdots\left(1-\lambda_n\right)
+$$ 
+\end{ex}
+
+\end{document}
