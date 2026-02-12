@@ -1,0 +1,96 @@
+\documentclass{article}
+%\usepackage[UTF8]{ctex}
+
+\usepackage{tikz-cd}
+
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{amsthm}
+\newtheorem{ex}{Excercise}
+\newtheorem{defn}{Definition}
+\newtheorem{thm}{Theorem}
+
+\newcommand{\C}{\mathbb{C}}
+\newcommand{\Z}{\mathbb{Z}}
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\Q}{\mathbb{Q}}
+\newcommand{\F}{\mathbb{F}}
+
+
+\newcommand{\tr}{\operatorname{tr}}
+\newcommand{\GL}{\operatorname{GL}}
+\newcommand{\SL}{\operatorname{SL}}
+\newcommand{\rank}{\operatorname{rank}}
+\newcommand{\im}{\operatorname{im}}
+\newcommand{\Aut}{\operatorname{Aut}}
+\newcommand{\SO}{\operatorname{SO}}
+\newcommand{\Hom}{\operatorname{Hom}}
+\newcommand{\id}{\operatorname{Id}}
+
+\title{IMSC 2048\ HW6 \\ Due 2026/2/26}
+
+
+\begin{document}
+\maketitle
+
+
+\section{Exercises}
+\subsection{Mandatory part}
+
+In this homework, we always work over the complex field $\C$ and finite dimensional representations of finite groups.
+
+\begin{ex}
+  Let $V$ be an irreducible representation of a finite group $G$ over $\C$ and $\chi$ be the character of $V$. Prove that $V$ is irreducible if and only if $\langle \chi, \chi \rangle = 1$. Use this to reprove that the dual representation of an irreducible representation is also irreducible.
+\end{ex}
+
+
+\begin{ex}
+  Let $G_1$ and $G_2$ be two groups and $V_i$ is an representation of $G_i$ over $\C$ for $i=1,2$. Define the representation $V_1 \otimes V_2$ of $G_1 \times G_2$ by
+  \[
+  (g_1, g_2) \cdot (v_1\otimes v_2) = (g_1 \cdot v_1)\otimes(g_2 \cdot v_2)
+  \]
+  for $g_i \in G_i$ and $v_i \in V_i$.
+  Prove that $V_1 \otimes V_2$ is irreducible if and only if both $V_1$ and $V_2$ are irreducible. How do you express the character of $V_1 \otimes V_2$ in terms of the characters of $V_1$ and $V_2$?
+\end{ex}
+
+
+\begin{ex}
+  Let $G$ be a finite group and operates on a finite set $X$. Let $V$ be the vector space over $\C$ with basis $X$, i.e., $V = \C^X$. Then the $G$-action on $X$ induces a linear representation of $G$ on $V$. Show that number of orbits of $G$ on $X$ is equal to multiplicity of the trivial representation in the irreducible decomposition of $V$.
+\end{ex}
+
+\begin{ex}
+  (Artin Algebra Chapter 10, 7.1) Prove a converse to Schur's Lemma: Let $\rho$ be a complex representation of a finite group $G$ on a vector space $V$. If the only $G$-invariant linear operators on $V$ are scalar multiplications (i.e., $\Hom_G(V, V) = \mathbb{C} \cdot \id_V$), then $\rho$ is irreducible.
+\end{ex}
+
+
+\begin{ex}
+  Let $S_n$ be the symmetric group on $[n] = \{1, 2, \cdots, n\}$.
+Prove the following combinatorial identity by characters
+\[\sum_{\sigma\in S_n}(\text{number of elements in }[n]\text{ fixed by }\sigma)^2=2(n!)^2\]
+\begin{enumerate}
+  \item Let $V$ be the representation of $S_n$ on $\C^n$ induced by the action of $S_n$ on standard basis $e_1, \cdots, e_n$ of $\C^n$. Show that the character $\chi_V$ of $V$ is given by
+  \[\chi_V(\sigma) = \text{number of elements in }[n]\text{ fixed by }\sigma\]
+  for $\sigma \in S_n$.
+  \item In class, we showed that the trivial representation of $S_n$ is contained in the representation $V$ given by subspace spanned by $e_1 + e_2 + \cdots + e_n$. The $G$-invariant compliment $W$ is defined by $W = \{v=(v_1\cdots v_n)^T \in \C^n \mid \sum_{i=1}^n v_i = 0\}$. Show that $W$ is irreducible by the following method. Let $V^\prime$ be a nonzero $G$-invariant subspace of $W$ and $v\in V^\prime$ be a non-zero vector. If any two component $v_i$ and $v_j$ of $v$ are not equal, then use a permutation $\sigma \in S_n$ to prove that $e_i-e_j$ is also in $V^\prime$. Then prove that $V^\prime$ must be all of $W$.
+  \item Use character of $V$ to prove the combinatorial identity stated in the beginning.
+  
+\end{enumerate}
+\end{ex}
+
+\subsection{Optional problems}
+\begin{ex}
+  In this exercise, we work on representation of finite group $G$ over field $F$ whose characteristic does not divide the order of the group. Define the convolution of two functions on $G$ by $\phi, \psi \in Map(G, F)$ by
+  \[(\phi * \psi)(g) = \frac{1}{|G|} \sum_{h \in G} \phi(h) \psi(h^{-1}g).\]
+Prove the following:
+\begin{enumerate}
+  \item The convolution is associative, i.e., $(\phi * \psi) * \theta = \phi * (\psi * \theta)$ for any $\phi, \psi, \theta \in Map(G, F)$.
+  \item The space of class functions $C(G, F)$ is closed under convolution.
+  \item If $\phi$ is a function on $G$ such that $\phi * \psi = \psi * \phi$ for any $\psi \in Map(G, F)$, then $\phi$ is a class function.
+\end{enumerate}
+
+\end{ex}
+
+
+
+
+\end{document}
