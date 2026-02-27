@@ -1,0 +1,81 @@
+\documentclass{article}
+%\usepackage[UTF8]{ctex}
+
+\usepackage{tikz-cd}
+
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{amsthm}
+\newtheorem{ex}{Excercise}
+\newtheorem{defn}{Definition}
+\newtheorem{thm}{Theorem}
+
+\newcommand{\C}{\mathbb{C}}
+\newcommand{\Z}{\mathbb{Z}}
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\Q}{\mathbb{Q}}
+\newcommand{\F}{\mathbb{F}}
+
+
+\newcommand{\tr}{\operatorname{tr}}
+\newcommand{\GL}{\operatorname{GL}}
+\newcommand{\SL}{\operatorname{SL}}
+\newcommand{\rank}{\operatorname{rank}}
+\newcommand{\im}{\operatorname{im}}
+\newcommand{\Aut}{\operatorname{Aut}}
+\newcommand{\SO}{\operatorname{SO}}
+\newcommand{\SU}{\operatorname{SU}}
+\newcommand{\Hom}{\operatorname{Hom}}
+\newcommand{\id}{\operatorname{Id}}
+
+\title{IMSC 2048\ Practice Midterm}
+
+
+\begin{document}
+\maketitle
+
+\begin{ex}
+Let $V$ be a finite-dimensional vector space over a field $\R$. Let $B: V \times V \to \R$ be a non-degenerate bilinear form. Suppose that for all $x, y \in V$, $B(x, y) = 0$ implies $B(y, x) = 0$. Prove that $B$ is either symmetric or skew-symmetric.
+\end{ex}
+
+\begin{ex}
+Define the center of character $\chi$ as $Z(\chi) = \{ g \in G \mid |\chi(g)| = \chi(1) \}$. Prove that $Z(\chi)$ is a normal subgroup of $G$. If $\chi$ is irreducible, show that $Z(\chi)$ contains the center of $G$.
+\end{ex}
+
+\begin{ex}
+Let $G = S_4$ be the symmetric group on $\{1, 2, 3, 4\}$. Recall the character table of $S_4$: the corresponding conjugacy classes are represented by the cycle types $(1)$, $(12)$, $(12)(34)$, $(123)$, and $(1234)$, and the numbers in the second row are the sizes of the conjugacy classes. The corresponding representations are denoted by $V_1, V_2, V_3, V_4, V_5$.
+\begin{center}
+\begin{tabular}{c|ccccc}
+$S_4$ & $(1)$ & $(12)$ & $(12)(34)$ & $(123)$ & $(1234)$ \\
+ & $1$ & $6$ & $3$ & $8$ & $6$ \\ \hline
+$\chi_1$ & $1$ & $1$ & $1$ & $1$ & $1$ \\
+$\chi_2$ & $1$ & $-1$ & $1$ & $1$ & $-1$ \\
+$\chi_3$ & $2$ & $0$ & $2$ & $-1$ & $0$ \\
+$\chi_4$ & $3$ & $1$ & $-1$ & $0$ & $-1$ \\
+$\chi_5$ & $3$ & $-1$ & $-1$ & $0$ & $1$
+\end{tabular}
+\end{center}
+\begin{enumerate}
+    \item[(a)] Decompose the tensor product $V_4 \otimes V_4$ into irreducible representations.
+    
+    \item[(b)] Determine all normal subgroups of $S_4$ from the character table.
+\end{enumerate}
+\end{ex}
+
+\begin{ex}
+Let $A \in M_{m \times n}(\R)$ with singular value decomposition $A = Q D P^T$, where $Q \in \mathrm{O}(m)$, $P \in \mathrm{O}(n)$, and $D$ has diagonal entries $\sigma_1 \ge \sigma_2 \ge \cdots \ge \sigma_r > 0$.
+\begin{enumerate}
+    \item[(a)] Compute the singular values of $A$.
+    \item[(b)] Compute the singular value decomposition of the matrix
+    \[
+    A = \begin{pmatrix} 1 & 1 \\ 0 & 1 \\ 1 & 0 \end{pmatrix}.
+    \]
+    \item[(c)] Find the rank-$1$ matrix $B$ that minimizes $\|A - B\|_F$, and compute $\|A - B\|_F$. Here $\|M\|_F = \sqrt{\sum_{i, j} m_{ij}^2}$ for $M = (m_{ij})$ is the Frobenius norm.
+\end{enumerate}
+\end{ex}
+
+\begin{ex}
+    Consider the vector space of $n\times n$ real matrices, equipped with the symmetric bilinear form $B(X, Y) = \tr(XY)$. Determine the signature of $B$.
+\end{ex}
+
+\end{document}
