@@ -1,0 +1,108 @@
+\documentclass{article}
+%\usepackage[UTF8]{ctex}
+
+\usepackage{tikz-cd}
+
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{amsthm}
+\newtheorem{exer}{Excercise}
+\newtheorem{defn}{Definition}
+\newtheorem{thm}{Theorem}
+
+\newcommand{\C}{\mathbb{C}}
+\newcommand{\Z}{\mathbb{Z}}
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\Q}{\mathbb{Q}}
+\newcommand{\F}{\mathbb{F}}
+
+
+\newcommand{\tr}{\operatorname{tr}}
+\newcommand{\GL}{\operatorname{GL}}
+\newcommand{\SL}{\operatorname{SL}}
+\newcommand{\rank}{\operatorname{rank}}
+\newcommand{\im}{\operatorname{im}}
+\newcommand{\Aut}{\operatorname{Aut}}
+\newcommand{\SO}{\operatorname{SO}}
+\newcommand{\Hom}{\operatorname{Hom}}
+\newcommand{\id}{\operatorname{Id}}
+\newcommand{\ch}{\operatorname{char}}
+
+\title{IMSC 2048\ HW8 \\ Due 2026/3/26}
+
+
+\begin{document}
+\maketitle
+
+\section{Exercises}
+\subsection{Mandatory part}
+
+\begin{exer}
+  Show that cyclotomic polynomials $\Phi_p(x)=\frac{x^p-1}{x-1}$ are irreducible over $\Q$ for all prime numbers $p$.
+\end{exer}
+
+\begin{exer}
+Prove that the polynomial $x^4+3x+3$ is irreducible polynomial over the field $\Q[\sqrt[\leftroot{-2}\uproot{2}3]{2}
+]$.
+\end{exer}
+
+\begin{exer}
+
+Find the degree of field extension 
+\begin{enumerate}
+\item $[\Q[\sqrt{p}, \sqrt{q}]\colon \Q]$ where $p$ and $q$ are two distinct prime numbers.
+\item $[\Q[\sqrt[\leftroot{-2}\uproot{2}3]{2}, \sqrt{2}]\colon \Q]$
+\end{enumerate}
+
+\end{exer}
+
+\begin{exer}
+    Find the irreducible polynomial of $\sqrt[\leftroot{-2}\uproot{2}3]{2}+\sqrt{3}$ over $\Q$.
+\end{exer}
+
+
+
+
+
+\begin{exer}
+  Find whether $(7)$ is a prime ideal in $\Z[\sqrt{-3}]$.
+\end{exer}
+
+
+
+
+
+
+\begin{exer}
+Find the splitting field $L$ of $x^8 - 2$ over $\Q$ (Write $L$ in the form of $\Q(\alpha, \beta, \dots)$), and compute $[L:\Q]$.
+\end{exer}
+
+\begin{exer}
+Let $L$ be the splitting field of $x^3 - 1$ over $\F_2$. Compute $[L:\F_2]$.
+\end{exer}
+
+
+\begin{exer}
+    \label{ex:quadratic}    
+We call two extensions $K_1$ and $K_2$ of $F$ isomorphic if there exists a field isomorphism $\varphi\colon K_1\to K_2$ such that $\varphi|_F\colon F\to F$ is identity. Assume $\ch(F)\neq 2$. Classify the isomorphism classes of degree-two extensions (quadratic extensions) of $F$. (Find an identification with $F^\times/(F^\times)^2-\{\overline{1}\}$, and explain the structure of this group $F^\times/(F^\times)^2$ using prime factorization when $F=\Q$.)
+\end{exer}
+
+\subsection{Optional questions}
+
+\begin{exer}
+Let $p_1, \ldots, p_n$ be distinct primes. Prove that $[\Q(\sqrt{p_1}, \ldots, \sqrt{p_n}):\Q] = 2^n$.
+\end{exer}
+
+
+\begin{exer}
+Consider quadratic extensions $K$ of $F$ with $\ch F=2$. Prove that either $K=F[\alpha]$ with $\alpha^2\in F$ and $\alpha\not\in F$ or $K=F[\alpha]$ with $\alpha^2-\alpha\in F$ and $\alpha\not\in F$. Can two cases of two different types above be isomorphic? Classify the isomorphism classes for quadratic extensions of $F$ using certain quotient groups of $F^\times/(F^\times)^2$ and $(F, +)/\{a^2-a \mid a\in F\}$ similar to question \ref{ex:quadratic}. 
+\end{exer}
+
+
+\begin{exer}
+ Let $p$ be a prime integer. Show that $x^p-x-a$ is irreducible over $\F_p$ for any $a\in \F_p^\times $. (Hint: If it has a root, then it splits by the shifting one root.)
+\end{exer}
+
+
+
+\end{document}
