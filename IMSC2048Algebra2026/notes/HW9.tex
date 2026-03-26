@@ -1,0 +1,114 @@
+\documentclass{article}
+%\usepackage[UTF8]{ctex}
+
+\usepackage{tikz-cd}
+
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{amsthm}
+\newtheorem{exer}{Excercise}
+\newtheorem{defn}{Definition}
+\newtheorem{thm}{Theorem}
+
+\newcommand{\C}{\mathbb{C}}
+\newcommand{\Z}{\mathbb{Z}}
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\Q}{\mathbb{Q}}
+\newcommand{\F}{\mathbb{F}}
+
+
+\newcommand{\tr}{\operatorname{tr}}
+\newcommand{\GL}{\operatorname{GL}}
+\newcommand{\SL}{\operatorname{SL}}
+\newcommand{\rank}{\operatorname{rank}}
+\newcommand{\im}{\operatorname{im}}
+\newcommand{\Aut}{\operatorname{Aut}}
+\newcommand{\SO}{\operatorname{SO}}
+\newcommand{\Hom}{\operatorname{Hom}}
+\newcommand{\id}{\operatorname{Id}}
+\newcommand{\ch}{\operatorname{char}}
+
+\title{IMSC 2048\ HW9 \\ Due 2026/4/2}
+
+
+\begin{document}
+\maketitle
+\section{Exercise}
+\begin{exer}
+  Let $F$ be a field with finite characteristic $p$, and $f(x)\in F[x]$ be an irreducible polynomial. Prove that there exists a unique integer $e\ge 0$ and a unique irreducible separable polynomial $g(x)\in F[x]$ such that $f(x)=g(x^{p^e})$.
+\end{exer}
+
+
+\begin{exer}
+  Let $F$ be a field. Let $f(x)$ and $g(x)$ be two coprime polynomials in $F[x]$. 
+  \begin{enumerate}
+  \item Show that $f(x)y-g(x)$ is irreducible in $F[x,y]$, and also irreducible in both $F(y)[x]$ and $F(x)[y]$.(Hint: use Gauss's lemma)
+  \item Prove that $F(x)$ is a finite extension of $F(f(x)/g(x))$ and its degree is $\max\{\deg f, \deg g\}$.
+  \end{enumerate}
+\end{exer}
+
+ 
+    \begin{exer}
+        Let $K/F$ be a field field extension. Denote by $Aut_F(K)$ the automorphisms $\sigma$ of $K$ such that $\sigma|_F=Id_F$. Prove that 
+        $$Aut_F(F(x))=\{x\mapsto {ax+b\over cx+d}\mid \det \begin{bmatrix}
+        a&b\\
+        c&d
+        \end{bmatrix}\neq 0
+        \}$$ and $Aut_F(F(x))\cong PGL(2, F)= GL(2, F)/\{\lambda I_2\mid \lambda\in F^\times\}$ as groups.
+    \end{exer}
+
+
+
+    \begin{exer}
+        Construct a splitting field for $x^5-2$ over $\Q$ by writing down a set of generators. What is its degree over $\Q$?
+    \end{exer}
+
+    
+
+
+\begin{exer}       
+        Let $F\subset K\subset L$ be finite field extensions. Then $L/F$ is separable if and only if $K/F$ is separable and $L/K$ is separable.
+\end{exer}
+
+    
+\begin{exer}[Application of uniqueness of splitting fields]
+Let $p$ be a prime and consider $f(x)=x^{p^2}-x\in\F_p[x]$.
+
+A useful fact about finite subgroups in $F^\times$ is that they are cyclic.
+
+\begin{enumerate}
+  \item Show that the splitting field of $f$ over $\F_p$ is a field with $p^2$ elements, denoted by $\F_{p^2}$.
+  \item Using the uniqueness of splitting fields, show that $\F_{p^2}$ is (up to isomorphism) the unique field with $p^2$ elements.
+  \item More generally, use the same argument to show that for any $n\ge 1$, $\F_{p^n}$ is the unique field (up to isomorphism) with $p^n$ elements.
+\end{enumerate}
+\end{exer}
+
+\begin{exer}
+  Let $L/K$ be an algebraic field extension. Show that all the separable elements in $L$ over $K$ form a subfield $L_s$ of $L$ containing $K$. (Optional: if $L\neq L_s$, then $L$ is not separable over $L_s$.)
+\end{exer}
+
+\begin{exer}[Degree bounds for splitting fields]
+Let $f(x)\in K[x]$ be a polynomial of degree $n$ with splitting field $L$. Show that $[L:K]$ divides $n!$.
+\end{exer}
+
+
+\subsection{Optional}
+
+
+\begin{exer}[Perfect fields]
+Recall that a field $K$ is \textbf{perfect} if every algebraic extension of $K$ is separable.
+\begin{enumerate}
+  \item Show that a field of characteristic $0$ is perfect.
+  \item Show that a field $K$ of characteristic $p>0$ is perfect if and only if the Frobenius map $\varphi\colon K\to K$, $a\mapsto a^p$, is surjective (i.e.\ every element of $K$ has a $p$-th root in $K$).
+  \item Deduce that every finite field is perfect.
+  \item Give an example of an imperfect field.
+\end{enumerate}
+\end{exer}
+
+    \begin{exer}
+    Let $\overline{F}$ be the algebraic closure of $F$ and $F^{sep}$ be the subfield of $\overline{F}$ consisting of all elements $\alpha$ such that $F(\alpha)/F$ is separable. Prove that $F^{sep}$ is the maximal separable extension of $F$ in $\overline{F}$ in the sense that any separable extension of $F$ in $\overline{F}$ can be embedded into in $F^{sep}$, and $F^{sep}$ has no finite separable extension of degree greater than $1$. (Optional: show that the these properties uniquely determine $F^{sep}/F$ up to isomorphism. After next class on normal extensions, you can ask is $F^{sep}/F$ normal?)
+    \end{exer}
+
+
+
+\end{document}
