@@ -1,0 +1,171 @@
+\documentclass{article}
+%\usepackage[UTF8]{ctex}
+
+\usepackage{tikz-cd}
+
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{amsthm}
+\newtheorem{exer}{Exercise}
+\newtheorem{defn}{Definition}
+\newtheorem{thm}{Theorem}
+
+\newcommand{\C}{\mathbb{C}}
+\newcommand{\Z}{\mathbb{Z}}
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\Q}{\mathbb{Q}}
+\newcommand{\F}{\mathbb{F}}
+
+
+\newcommand{\tr}{\operatorname{tr}}
+\newcommand{\GL}{\operatorname{GL}}
+\newcommand{\SL}{\operatorname{SL}}
+\newcommand{\rank}{\operatorname{rank}}
+\newcommand{\im}{\operatorname{im}}
+\newcommand{\Aut}{\operatorname{Aut}}
+\newcommand{\SO}{\operatorname{SO}}
+\newcommand{\Hom}{\operatorname{Hom}}
+\newcommand{\id}{\operatorname{Id}}
+\newcommand{\ch}{\operatorname{char}}
+
+\title{IMSC 2048\ HW11 \\ Due 2026/4/16}
+
+
+\begin{document}
+\maketitle
+
+
+\section{Exercises}
+
+\begin{exer}[Fundamental Theorem of Algebra]\label{exer:FTA}
+
+In this exercise, you will prove the Fundamental Theorem of Algebra using the Galois correspondence, Sylow theorems, and two elementary facts from analysis. The proof is broken into small steps; the necessary background facts are stated for you.
+
+\begin{thm}[Fundamental Theorem of Algebra]\label{thm:FTA}
+Every non-constant polynomial $f(x) \in \C[x]$ has a root in $\C$. Equivalently, $\C$ is algebraically closed.
+\end{thm}
+
+\subsubsection*{Facts from analysis (accepted without proof)}
+
+\begin{enumerate}
+\item[\textbf{(A1)}] \emph{Every odd-degree polynomial in $\R[x]$ has a root in $\R$.}
+
+(This follows from the intermediate value theorem: if $\deg f$ is odd, then $f(x)\to +\infty$ and $f(x)\to -\infty$ as $x\to\pm\infty$, so $f$ must cross the $x$-axis.)
+
+\item[\textbf{(A2)}] \emph{Every complex number has a square root in $\C$.}
+
+(If $z=re^{i\theta}$ in polar form, then $\sqrt{r}\,e^{i\theta/2}$ is a square root of $z$.)
+\end{enumerate}
+
+\subsubsection*{Facts from group theory (accepted without proof)}
+
+\begin{enumerate}
+\item[\textbf{(G1)}] \textbf{Sylow's theorem.} If $G$ is a finite group with $|G|=p^a\cdot m$ and $\gcd(p,m)=1$, then $G$ has a subgroup of order $p^a$.
+
+\item[\textbf{(G2)}] \textbf{Index-$p$ subgroups of $p$-groups.} If $P$ is a non-trivial finite $p$-group (i.e.\ $|P|=p^k$ with $k\ge 1$), then $P$ has a normal subgroup of index $p$.
+
+(Sketch: the class equation shows $|Z(P)|>1$; since $Z(P)$ is abelian of $p$-power order, Cauchy's theorem gives an element of order $p$ in $Z(P)$, which generates a normal subgroup of order $p$. Quotient and induct.)
+\end{enumerate}
+
+
+Work through the following steps to prove Theorem~\ref{thm:FTA}.
+
+\medskip
+\noindent\textbf{Step 1} (Reduction to $\R[x]$).\;
+Let $f(x)\in\C[x]$ be non-constant. Define $\overline{f}(x)$ by conjugating all coefficients of $f$.
+\begin{enumerate}
+\item[(a)] Show that $g(x):=f(x)\,\overline{f}(x)$ has real coefficients.
+\item[(b)] Explain why, if $g$ splits completely over $\C$, then $f$ also has a root in $\C$.
+\item[(c)] Conclude: it suffices to show that every non-constant polynomial in $\R[x]$ splits over $\C$.
+\end{enumerate}
+
+\medskip
+\noindent\textbf{Step 2} (Setting up the Galois extension).\;
+Let $h(x)\in\R[x]$ be non-constant. Replace $h$ by $h(x)\cdot(x^2+1)$ if necessary.
+\begin{enumerate}
+\item[(a)] Show that a splitting field $K$ of $h$ over $\R$ contains a root of $x^2+1$, and hence $\C=\R(i)\subseteq K$.
+
+\item[(b)] Write $|G|=2^a\cdot m$ where $G=\mathrm{Gal}(K/\R)$ and $m$ is odd. Our goal is to show $K=\C$, i.e.\ $a=1$ and $m=1$.
+\end{enumerate}
+
+\medskip
+\noindent\textbf{Step 3} (Killing the odd part: $m=1$).\;
+\begin{enumerate}
+\item[(a)] By \textbf{(G1)}, $G$ has a subgroup $P$ of order $2^a$. Using the Galois correspondence, show that the fixed field $E=K^P$ satisfies $[E:\R]=m$.
+\item[(b)] Let $\alpha\in E$. Explain why the minimal polynomial of $\alpha$ over $\R$ is irreducible of odd degree (dividing $m$).
+\item[(c)] Apply \textbf{(A1)} to conclude $\alpha\in\R$.
+\item[(d)] Since $\alpha\in E$ was arbitrary, conclude $E=\R$ and hence $m=1$.
+\end{enumerate}
+
+\medskip
+\noindent\textbf{Step 4} (Killing the $2$-part: $a=1$).\;
+Now we know $|G|=2^a$, i.e.\ $G$ is a $2$-group.
+\begin{enumerate}
+\item[(a)] Let $H=\mathrm{Gal}(K/\C)$. Show that $[G:H]=[\C:\R]=2$, hence $|H|=2^{a-1}$.
+
+\item[(b)] Suppose for contradiction  $H\neq 1$ (i.e.\ $a\ge 2$). Apply \textbf{(G2)} to $H$ (with $p=2$): conclude that $H$ has a subgroup $H_1$ of index $2$.
+
+\item[(c)] Show that the fixed field $L=K^{H_1}$ satisfies $[L:\C]=2$.
+
+\item[(d)] Deduce that $L=\C(\alpha)$ where $\alpha$ satisfies an irreducible quadratic $x^2+bx+c\in\C[x]$. Use the quadratic formula and \textbf{(A2)} to show $\alpha\in\C$. Derive a contradiction.
+
+\item[(e)] Conclude $H=1$, hence $K=\C$, hence $h$ splits over $\C$.
+\end{enumerate}
+
+\medskip
+\noindent\textbf{Step 5} (Corollaries).
+\begin{enumerate}
+\item[(a)] Prove: $\C$ is the unique (up to $\R$-isomorphism) degree-$2$ extension of $\R$.
+
+(Hint: if $[L:\R]=2$, write $L=\R(\alpha)$ with $\alpha^2+b\alpha+c=0$, complete the square to find an element $\gamma\in L$ with $\gamma^2=-1$.)
+
+\item[(b)] Prove: the \emph{only} finite extensions of $\R$ are isomorphic to $\R$ itself or $\C$.
+
+\end{enumerate}
+\end{exer}
+
+\begin{exer}[Orbits under the Galois group and irreducible polynomials]\label{exer:orbit-irred}
+Let $K/F$ be a finite Galois extension with $G=\mathrm{Gal}(K/F)$, and let $\alpha\in K$.
+
+\medskip
+\noindent\textbf{Step 1} (The orbit).\;
+Define the \emph{Galois orbit} of $\alpha$ to be $\mathrm{Orb}_G(\alpha)=\{\sigma(\alpha):\sigma\in G\}$. The stabilizer $\mathrm{Stab}_G(\alpha)=\{\sigma\in G:\sigma(\alpha)=\alpha\}$ is a subgroup of $G$.
+\begin{enumerate}
+\item[(a)] Show that $\mathrm{Stab}_G(\alpha) = \mathrm{Gal}(K/F(\alpha))$.
+\item[(b)] Conclude by the orbit--stabilizer theorem that $|\mathrm{Orb}_G(\alpha)| = [G:\mathrm{Stab}_G(\alpha)] = [F(\alpha):F]$.
+\end{enumerate}
+
+\medskip
+\noindent\textbf{Step 2} (From orbit to irreducible polynomial).\;
+Let $\mathrm{Orb}_G(\alpha)=\{\alpha_1,\dots,\alpha_d\}$ where $d=[F(\alpha):F]$.
+\begin{enumerate}
+\item[(a)] Form $f(x)=\prod_{j=1}^{d}(x-\alpha_j)\in K[x]$. Show that $f(x)\in F[x]$.
+\item[(b)] Conclude that $f(x)=m_{\alpha,F}(x)$ is the minimal polynomial of $\alpha$ over $F$.
+\item[(c)] Use this method to find the minimal polynomial of $\sqrt{2}+\sqrt{3}$ over $\Q$. 
+\end{enumerate}
+
+\end{exer}
+
+\begin{exer}[The Galois group of $\C(x)/\C(x^n+x^{-n})$ is the dihedral group]\label{exer:dihedral-galois}
+Let $n\ge 2$ be an integer. We work with the field of rational functions $\C(x)$, and let $t=x^n+x^{-n}$.
+
+\medskip
+
+\begin{enumerate}
+\item[(a)] Let $\zeta=e^{2\pi i/n}$. Define $\rho\colon\C(x)\to\C(x)$ by $\rho(f(x))=f(\zeta x)$. Show that $\rho$ is a field automorphism of $\C(x)$ fixing $\C(t)$.
+\item[(b)] Define $\sigma\colon\C(x)\to\C(x)$ by $\sigma(f(x))=f(x^{-1})$. Show $\sigma$ is a field automorphism of $\C(x)$ fixing $\C(t)$.
+\item[(c)] Compute $\sigma\rho\sigma^{-1}(x)$. Show that $\sigma\rho\sigma^{-1}=\rho^{-1}$.
+\item[(d)] Conclude that $\rho$ and $\sigma$ generate a subgroup $D\leq\mathrm{Aut}_{\C(t)}(\C(x))$ satisfying $\rho^n=Id$, $\sigma^2=Id$, and $\sigma\rho\sigma^{-1}=\rho^{-1}$, i.e.\ $D\cong D_n$ (the dihedral group of order $2n$).
+
+
+\item[(e)] Show that $\C(x)/\C(t)$ is Galois by showing that $\C(x)$ is a splitting field of $Q(y)=y^{2n}-ty^n+1$ over $\C(t)$.
+
+\item[(f)] Use previous excercise to show $[\C(x):\C(t)]= 2n$.
+
+\item[(g)] Show that $\mathrm{Gal}(\C(x)/\C(t))\cong D_n$.
+\end{enumerate}
+
+\end{exer}
+
+
+\end{document}
