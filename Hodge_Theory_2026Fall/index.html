@@ -1,124 +1,281 @@
-<!DOCTYPE html>
-<html lang="en">
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<html>
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Hodge Theory, Fall 2026 at SIMIS. Fridays 9:50–12:30 in SIMIS 1010 during Fudan teaching weeks 1–16. No class on September 25 or October 2, 2026.">
-    <title>Hodge Theory Fall 2026 – SIMIS</title>
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
-    <style>
-        body {
-            background-color: #f8f9fa;
-            font-family: 'Georgia', serif;
-        }
-        .container {
-            margin-top: 20px;
-        }
-        .footer {
-            margin-top: 20px;
-            padding: 10px;
-            background-color: #343a40;
-            color: white;
-            text-align: center;
-        }
-        .footer a {
-            color: #61dafb;
-        }
-        .header {
-            background-color: #343a40;
-            color: white;
-            padding: 10px;
-            text-align: center;
-        }
-        .header h1 {
-            margin: 0;
-        }
-        .navbar-nav {
-            flex-wrap: wrap;
-        }
-        .navbar-nav .nav-link {
-            padding-left: 0.75rem;
-            padding-right: 0.75rem;
-        }
-        .header h1 {
-            font-size: 2rem;
-        }
-        h2 {
-            margin-top: 1.5rem;
-        }
-    </style>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+  <meta http-equiv="Content-Style-Type" content="text/css">
+  <title></title>
+  <meta name="Description" content="Hodge Theory, Fall 2026 at SIMIS. Fridays 9:50–12:30 in SIMIS 1010 during Fudan teaching weeks 1–16. No class on September 25 or October 2, 2026.">
+  <meta name="Generator" content="Cocoa HTML Writer">
+  <meta name="CocoaVersion" content="2685.5">
+  <style type="text/css">
+    body {background-color: #f6f7f9}
+    p.p1 {margin: 0.0px 0.0px 0.0px 0.0px; font: 15.0px Georgia; color: #ffffff; -webkit-text-stroke: #ffffff}
+    p.p5 {margin: 0.0px 0.0px 0.0px 0.0px; font: 12.0px Georgia; color: #191c1f; -webkit-text-stroke: #191c1f}
+    p.p8 {margin: 0.0px 0.0px 12.0px 0.0px; font: 12.0px Georgia; color: #191c1f; -webkit-text-stroke: #191c1f}
+    p.p9 {margin: 0.0px 0.0px 0.0px 0.0px; font: 12.0px Georgia; color: #59626a; -webkit-text-stroke: #59626a}
+    p.p10 {margin: 0.0px 0.0px 0.0px 0.0px; font: 12.0px Georgia; color: #393f45; -webkit-text-stroke: #393f45}
+    p.p11 {margin: 0.0px 0.0px 12.0px 0.0px; font: 12.0px Georgia; color: #59626a; -webkit-text-stroke: #59626a}
+    p.p12 {margin: 0.0px 0.0px 12.0px 0.0px; text-align: center; font: 12.0px Georgia; color: #53d2fa; -webkit-text-stroke: #53d2fa}
+    li.li2 {margin: 0.0px 0.0px 0.0px 0.0px; font: 12.0px Georgia; color: #ffffff; color: rgba(255, 255, 255, 0.5); -webkit-text-stroke: rgba(255, 255, 255, 0.5)}
+    li.li5 {margin: 0.0px 0.0px 0.0px 0.0px; font: 12.0px Georgia; color: #191c1f; -webkit-text-stroke: #191c1f}
+    li.li6 {margin: 0.0px 0.0px 0.0px 0.0px; font: 10.5px Menlo; color: #df2179; -webkit-text-stroke: #df2179}
+    li.li7 {margin: 0.0px 0.0px 0.0px 0.0px; font: 12.0px Georgia; color: #0b61ff; -webkit-text-stroke: #0b61ff}
+    span.s1 {font-kerning: none; background-color: #272c31}
+    span.s2 {background-color: #272c31; -webkit-text-stroke: 0px #000000}
+    span.s3 {font-kerning: none}
+    span.s4 {-webkit-text-stroke: 0px #000000}
+    span.s5 {font: 12.0px Georgia; color: #191c1f; -webkit-text-stroke: 0px #000000}
+    span.s6 {font: 12.0px Georgia; font-kerning: none; color: #191c1f; -webkit-text-stroke: 0px #191c1f}
+    span.s7 {font: 12.0px 'Songti SC'; font-kerning: none}
+    span.s8 {color: #191c1f; -webkit-text-stroke: 0px #000000}
+    span.s9 {font-kerning: none; color: #191c1f; -webkit-text-stroke: 0px #191c1f}
+    span.s10 {font-kerning: none; color: #0b61ff; -webkit-text-stroke: 0px #0b61ff}
+    span.s11 {font: 12.0px Georgia; font-kerning: none; color: #0b61ff; -webkit-text-stroke: 0px #0b61ff}
+    span.s12 {font: 12.0px Georgia; font-kerning: none; color: #53d2fa; -webkit-text-stroke: 0px #53d2fa}
+    table.t1 {margin: 0.0px 0.0px 12.0px 0.0px; border-collapse: collapse}
+    td.td1 {width: 139.4px; background-color: #e4e7eb; border-style: solid; border-width: 1.0px 1.0px 2.0px 1.0px; border-color: #d6dbe0 #d6dbe0 #d6dbe0 #d6dbe0; padding: 9.0px 9.0px 9.0px 9.0px}
+    td.td2 {width: 188.3px; background-color: #e4e7eb; border-style: solid; border-width: 1.0px 1.0px 2.0px 1.0px; border-color: #d6dbe0 #d6dbe0 #d6dbe0 #d6dbe0; padding: 9.0px 9.0px 9.0px 9.0px}
+    td.td3 {width: 361.3px; background-color: #e4e7eb; border-style: solid; border-width: 1.0px 1.0px 2.0px 1.0px; border-color: #d6dbe0 #d6dbe0 #d6dbe0 #d6dbe0; padding: 9.0px 9.0px 9.0px 9.0px}
+    td.td4 {width: 139.4px; background-color: #000000; background-color: rgba(0, 0, 0, 0.051); border-style: solid; border-width: 1.0px 1.0px 1.0px 1.0px; border-color: #d6dbe0 #d6dbe0 #d6dbe0 #d6dbe0; padding: 9.0px 9.0px 9.0px 9.0px}
+    td.td5 {width: 188.3px; background-color: #000000; background-color: rgba(0, 0, 0, 0.051); border-style: solid; border-width: 1.0px 1.0px 1.0px 1.0px; border-color: #d6dbe0 #d6dbe0 #d6dbe0 #d6dbe0; padding: 9.0px 9.0px 9.0px 9.0px}
+    td.td6 {width: 361.3px; background-color: #000000; background-color: rgba(0, 0, 0, 0.051); border-style: solid; border-width: 1.0px 1.0px 1.0px 1.0px; border-color: #d6dbe0 #d6dbe0 #d6dbe0 #d6dbe0; padding: 9.0px 9.0px 9.0px 9.0px}
+    td.td7 {width: 139.4px; border-style: solid; border-width: 1.0px 1.0px 1.0px 1.0px; border-color: #d6dbe0 #d6dbe0 #d6dbe0 #d6dbe0; padding: 9.0px 9.0px 9.0px 9.0px}
+    td.td8 {width: 188.3px; border-style: solid; border-width: 1.0px 1.0px 1.0px 1.0px; border-color: #d6dbe0 #d6dbe0 #d6dbe0 #d6dbe0; padding: 9.0px 9.0px 9.0px 9.0px}
+    td.td9 {width: 361.3px; border-style: solid; border-width: 1.0px 1.0px 1.0px 1.0px; border-color: #d6dbe0 #d6dbe0 #d6dbe0 #d6dbe0; padding: 9.0px 9.0px 9.0px 9.0px}
+    td.td10 {width: 139.4px; background-color: #ffebac; border-style: solid; border-width: 1.0px 1.0px 1.0px 1.0px; border-color: #d6dbe0 #d6dbe0 #d6dbe0 #d6dbe0; padding: 9.0px 9.0px 9.0px 9.0px}
+    td.td11 {width: 188.3px; background-color: #ffebac; border-style: solid; border-width: 1.0px 1.0px 1.0px 1.0px; border-color: #d6dbe0 #d6dbe0 #d6dbe0 #d6dbe0; padding: 9.0px 9.0px 9.0px 9.0px}
+    td.td12 {width: 361.3px; background-color: #ffebac; border-style: solid; border-width: 1.0px 1.0px 1.0px 1.0px; border-color: #d6dbe0 #d6dbe0 #d6dbe0 #d6dbe0; padding: 9.0px 9.0px 9.0px 9.0px}
+    ul.ul1 {list-style-type: disc}
+  </style>
 </head>
 <body>
-    <nav class="navbar navbar-expand-lg navbar-dark bg-dark flex-wrap" aria-label="Course navigation">
-        <a class="navbar-brand" href="#">Hodge Theory Fall 2026</a>
-        <ul class="navbar-nav flex-row ml-lg-auto">
-            <li class="nav-item"><a class="nav-link" href="#syllabus">Syllabus</a></li>
-            <li class="nav-item"><a class="nav-link" href="#schedule">Schedule</a></li>
-            <li class="nav-item"><a class="nav-link" href="#lectures">Lectures</a></li>
-            <li class="nav-item"><a class="nav-link" href="#homework">Homework</a></li>
-            <li class="nav-item"><a class="nav-link" href="#projects">Projects</a></li>
-        </ul>
-    </nav>
-    <header class="header">
-        <h1>Hodge Theory Fall 2026 – SIMIS</h1>
-    </header>
-    <main class="container">
-        <h2>Course Information</h2>
-        <ul>
-            <li><b>Lecturer</b>: Chenglong Yu</li>
-            <li><b>Office</b>: SIMIS 1106</li>
-            <li><b>E-mail</b>: <code>yuchenglong {at} simis.cn</code></li>
-            <li><b>Location</b>: SIMIS 1010</li>
-            <li><b>Time</b>: Fridays, 9:50–12:30 (Shanghai time), except the holidays listed below</li>
-            <li><b>Duration</b>: Fudan teaching weeks 1–16, including holiday breaks (14 regular Friday meetings)</li>
-            <li><b>First class</b>: September 11, 2026</li>
-            <li><b>TA</b>: <span lang="zh-CN">黎总标</span></li>
-            <li><b>TA e-mail</b>: <a href="mailto:zbli24@m.fudan.edu.cn">zbli24@m.fudan.edu.cn</a></li>
-        </ul>
-        <h2 id="syllabus">Syllabus</h2>
-        <p>The course introduces complex manifolds, Kähler manifolds, Hodge structures, and variations of Hodge structures. Through examples of curves, K3 surfaces, Calabi–Yau manifolds, and families of hypersurfaces, we will study the corresponding period domains and period maps.</p>
-        <h2 id="schedule">Course Schedule</h2>
-        <p>The schedule follows weeks 1–16 of the <a href="https://xxgk.fudan.edu.cn/f3/b0/c5229a783280/page.htm">Fudan University 2026–2027 academic calendar</a>. The two holiday Fridays are marked below; there are 14 regular Friday meetings between September 11 and December 25, 2026.</p>
-        <p>The <a href="https://ices.fudan.edu.cn/ff/4c/c6758a786252/page.htm">published Fudan ICES autumn calendar</a> lists September 20 (Sunday) as a replacement for October 6 (Tuesday), and October 10 (Saturday) as a replacement for October 7 (Wednesday). Neither is a make-up date for this Friday course. Holiday and make-up arrangements remain subject to the university’s final notice.</p>
-        <div class="table-responsive">
-            <table class="table table-striped table-bordered">
-                <caption>Class meetings: SIMIS 1010, 9:50–12:30 (Shanghai time). Week numbers follow the Fudan academic calendar and include holiday weeks.</caption>
-                <thead class="thead-light">
-                    <tr><th scope="col">Fudan week</th><th scope="col">Date (Friday)</th><th scope="col">Arrangement</th></tr>
-                </thead>
-                <tbody>
-                    <tr><th scope="row">1</th><td><time datetime="2026-09-11">September 11, 2026</time></td><td>Regular class</td></tr>
-                    <tr><th scope="row">2</th><td><time datetime="2026-09-18">September 18, 2026</time></td><td>Regular class</td></tr>
-                    <tr class="table-warning"><th scope="row">3</th><td><time datetime="2026-09-25">September 25, 2026</time></td><td><strong>No class</strong> — Mid-Autumn Festival holiday</td></tr>
-                    <tr class="table-warning"><th scope="row">4</th><td><time datetime="2026-10-02">October 2, 2026</time></td><td><strong>No class</strong> — National Day holiday</td></tr>
-                    <tr><th scope="row">5</th><td><time datetime="2026-10-09">October 9, 2026</time></td><td>Regular class</td></tr>
-                    <tr><th scope="row">6</th><td><time datetime="2026-10-16">October 16, 2026</time></td><td>Regular class</td></tr>
-                    <tr><th scope="row">7</th><td><time datetime="2026-10-23">October 23, 2026</time></td><td>Regular class</td></tr>
-                    <tr><th scope="row">8</th><td><time datetime="2026-10-30">October 30, 2026</time></td><td>Regular class</td></tr>
-                    <tr><th scope="row">9</th><td><time datetime="2026-11-06">November 6, 2026</time></td><td>Regular class</td></tr>
-                    <tr><th scope="row">10</th><td><time datetime="2026-11-13">November 13, 2026</time></td><td>Regular class</td></tr>
-                    <tr><th scope="row">11</th><td><time datetime="2026-11-20">November 20, 2026</time></td><td>Regular class</td></tr>
-                    <tr><th scope="row">12</th><td><time datetime="2026-11-27">November 27, 2026</time></td><td>Regular class</td></tr>
-                    <tr><th scope="row">13</th><td><time datetime="2026-12-04">December 4, 2026</time></td><td>Regular class</td></tr>
-                    <tr><th scope="row">14</th><td><time datetime="2026-12-11">December 11, 2026</time></td><td>Regular class</td></tr>
-                    <tr><th scope="row">15</th><td><time datetime="2026-12-18">December 18, 2026</time></td><td>Regular class</td></tr>
-                    <tr><th scope="row">16</th><td><time datetime="2026-12-25">December 25, 2026</time></td><td>Regular class</td></tr>
-                </tbody>
-            </table>
-        </div>
-        <p>Fudan weeks 17–18 (December 28, 2026–January 8, 2027) are reserved for final examinations, with regular classes suspended. January 1 is the New Year’s Day holiday; it is not a regular meeting of this course.</p>
-        <p class="text-muted">Calendar information checked on September 8, 2026.</p>
-        <h2 id="lectures">Lectures</h2>
-        <p>Lecture notes and recordings will be posted here when available.</p>
-        <h2 id="homework">Homework assignments</h2>
-        <p>To be announced.</p>
-        <h2 id="projects">Projects</h2>
-        <p>To be announced.</p>
-        <h2 id="references">References</h2>
-        <p>To be announced.</p>
-    </main>
-    <footer class="footer">
-        <p><a href="../index.html">Back to homepage</a></p>
-    </footer>
+<p class="p1"><span class="s1">Hodge Theory Fall 2026</span></p>
+<ul class="ul1">
+  <li class="li2"><span class="s2"></span><span class="s1">Syllabus</span></li>
+  <li class="li2"><span class="s2"></span><span class="s1">Schedule</span></li>
+  <li class="li2"><span class="s2"></span><span class="s1">Lectures</span></li>
+  <li class="li2"><span class="s2"></span><span class="s1">Homework</span></li>
+  <li class="li2"><span class="s2"></span><span class="s1">Projects</span></li>
+</ul>
+<h1 style="margin: 0.0px 0.0px 0.0px 0.0px; text-align: center; font: 24.0px Georgia; color: #ffffff; -webkit-text-stroke: #ffffff"><span class="s1">Hodge Theory Fall 2026 – SIMIS</span></h1>
+<h2 style="margin: 0.0px 0.0px 6.0px 0.0px; font: 24.0px Georgia; color: #191c1f; -webkit-text-stroke: #191c1f"><span class="s3">Course Information</span></h2>
+<ul class="ul1">
+  <li class="li5"><span class="s4"><b></b></span><span class="s3"><b>Lecturer</b>: Chenglong Yu</span></li>
+  <li class="li5"><span class="s4"><b></b></span><span class="s3"><b>Office</b>: SIMIS 1106</span></li>
+  <li class="li6"><span class="s5"><b></b></span><span class="s6"><b>E-mail</b>: </span><span class="s3">yuchenglong {at} simis.cn</span></li>
+  <li class="li5"><span class="s4"><b></b></span><span class="s3"><b>Location</b>: SIMIS 1010</span></li>
+  <li class="li5"><span class="s4"><b></b></span><span class="s3"><b>Time</b>: Fridays, 9:50–12:30 (Shanghai time), except the holidays listed below</span></li>
+  <li class="li5"><span class="s4"><b></b></span><span class="s3"><b>Duration</b>: Fudan teaching weeks 1–16, including holiday breaks (14 regular Friday meetings)</span></li>
+  <li class="li5"><span class="s4"><b></b></span><span class="s3"><b>First class</b>: September 11, 2026</span></li>
+  <li class="li5"><span class="s4"><b></b></span><span class="s3"><b>TA</b>: </span><span class="s7">黎总标</span></li>
+  <li class="li7"><span class="s8"><b></b></span><span class="s9"><b>TA e-mail</b>: <a href="mailto:zbli24@m.fudan.edu.cn"><span class="s10">zbli24@m.fudan.edu.cn</span></a></span></li>
+</ul>
+<h2 style="margin: 0.0px 0.0px 6.0px 0.0px; font: 24.0px Georgia; color: #191c1f; -webkit-text-stroke: #191c1f"><span class="s3">Syllabus</span></h2>
+<p class="p8"><span class="s3">The course introduces complex manifolds, Kähler manifolds, Hodge structures, and variations of Hodge structures. Through examples of curves, K3 surfaces, Calabi–Yau manifolds, and families of hypersurfaces, we will study the corresponding period domains and period maps.</span></p>
+<h2 style="margin: 0.0px 0.0px 6.0px 0.0px; font: 24.0px Georgia; color: #191c1f; -webkit-text-stroke: #191c1f"><span class="s3">Course Schedule</span></h2>
+<p class="p8"><span class="s3">The schedule follows weeks 1–16 of the <a href="https://xxgk.fudan.edu.cn/f3/b0/c5229a783280/page.htm"><span class="s11">Fudan University 2026–2027 academic calendar</span></a>. The two holiday Fridays are marked below; there are 14 regular Friday meetings between September 11 and December 25, 2026.</span></p>
+<p class="p9"><span class="s3">Class meetings: SIMIS 1010, 9:50–12:30 (Shanghai time). Week numbers follow the Fudan academic calendar and include holiday weeks.</span></p>
+<table cellspacing="0" cellpadding="0" class="t1">
+  <tbody>
+    <tr>
+      <td valign="bottom" class="td1">
+        <p class="p10"><span class="s3"><b>Fudan week</b></span></p>
+      </td>
+      <td valign="bottom" class="td2">
+        <p class="p10"><span class="s3"><b>Date (Friday)</b></span></p>
+      </td>
+      <td valign="bottom" class="td3">
+        <p class="p10"><span class="s3"><b>Arrangement</b></span></p>
+      </td>
+    </tr>
+    <tr>
+      <td valign="top" class="td4">
+        <p class="p5"><span class="s3"><b>1</b></span></p>
+      </td>
+      <td valign="top" class="td5">
+        <p class="p5"><span class="s3">September 11, 2026</span></p>
+      </td>
+      <td valign="top" class="td6">
+        <p class="p5"><span class="s3">Regular class</span></p>
+      </td>
+    </tr>
+    <tr>
+      <td valign="top" class="td7">
+        <p class="p5"><span class="s3"><b>2</b></span></p>
+      </td>
+      <td valign="top" class="td8">
+        <p class="p5"><span class="s3">September 18, 2026</span></p>
+      </td>
+      <td valign="top" class="td9">
+        <p class="p5"><span class="s3">Regular class</span></p>
+      </td>
+    </tr>
+    <tr>
+      <td valign="top" class="td10">
+        <p class="p5"><span class="s3"><b>3</b></span></p>
+      </td>
+      <td valign="top" class="td11">
+        <p class="p5"><span class="s3">September 25, 2026</span></p>
+      </td>
+      <td valign="top" class="td12">
+        <p class="p5"><span class="s3"><b>No class</b> — Mid-Autumn Festival holiday</span></p>
+      </td>
+    </tr>
+    <tr>
+      <td valign="top" class="td10">
+        <p class="p5"><span class="s3"><b>4</b></span></p>
+      </td>
+      <td valign="top" class="td11">
+        <p class="p5"><span class="s3">October 2, 2026</span></p>
+      </td>
+      <td valign="top" class="td12">
+        <p class="p5"><span class="s3"><b>No class</b> — National Day holiday</span></p>
+      </td>
+    </tr>
+    <tr>
+      <td valign="top" class="td4">
+        <p class="p5"><span class="s3"><b>5</b></span></p>
+      </td>
+      <td valign="top" class="td5">
+        <p class="p5"><span class="s3">October 9, 2026</span></p>
+      </td>
+      <td valign="top" class="td6">
+        <p class="p5"><span class="s3">Regular class</span></p>
+      </td>
+    </tr>
+    <tr>
+      <td valign="top" class="td7">
+        <p class="p5"><span class="s3"><b>6</b></span></p>
+      </td>
+      <td valign="top" class="td8">
+        <p class="p5"><span class="s3">October 16, 2026</span></p>
+      </td>
+      <td valign="top" class="td9">
+        <p class="p5"><span class="s3">Regular class</span></p>
+      </td>
+    </tr>
+    <tr>
+      <td valign="top" class="td4">
+        <p class="p5"><span class="s3"><b>7</b></span></p>
+      </td>
+      <td valign="top" class="td5">
+        <p class="p5"><span class="s3">October 23, 2026</span></p>
+      </td>
+      <td valign="top" class="td6">
+        <p class="p5"><span class="s3">Regular class</span></p>
+      </td>
+    </tr>
+    <tr>
+      <td valign="top" class="td7">
+        <p class="p5"><span class="s3"><b>8</b></span></p>
+      </td>
+      <td valign="top" class="td8">
+        <p class="p5"><span class="s3">October 30, 2026</span></p>
+      </td>
+      <td valign="top" class="td9">
+        <p class="p5"><span class="s3">Regular class</span></p>
+      </td>
+    </tr>
+    <tr>
+      <td valign="top" class="td4">
+        <p class="p5"><span class="s3"><b>9</b></span></p>
+      </td>
+      <td valign="top" class="td5">
+        <p class="p5"><span class="s3">November 6, 2026</span></p>
+      </td>
+      <td valign="top" class="td6">
+        <p class="p5"><span class="s3">Regular class</span></p>
+      </td>
+    </tr>
+    <tr>
+      <td valign="top" class="td7">
+        <p class="p5"><span class="s3"><b>10</b></span></p>
+      </td>
+      <td valign="top" class="td8">
+        <p class="p5"><span class="s3">November 13, 2026</span></p>
+      </td>
+      <td valign="top" class="td9">
+        <p class="p5"><span class="s3">Regular class</span></p>
+      </td>
+    </tr>
+    <tr>
+      <td valign="top" class="td4">
+        <p class="p5"><span class="s3"><b>11</b></span></p>
+      </td>
+      <td valign="top" class="td5">
+        <p class="p5"><span class="s3">November 20, 2026</span></p>
+      </td>
+      <td valign="top" class="td6">
+        <p class="p5"><span class="s3">Regular class</span></p>
+      </td>
+    </tr>
+    <tr>
+      <td valign="top" class="td7">
+        <p class="p5"><span class="s3"><b>12</b></span></p>
+      </td>
+      <td valign="top" class="td8">
+        <p class="p5"><span class="s3">November 27, 2026</span></p>
+      </td>
+      <td valign="top" class="td9">
+        <p class="p5"><span class="s3">Regular class</span></p>
+      </td>
+    </tr>
+    <tr>
+      <td valign="top" class="td4">
+        <p class="p5"><span class="s3"><b>13</b></span></p>
+      </td>
+      <td valign="top" class="td5">
+        <p class="p5"><span class="s3">December 4, 2026</span></p>
+      </td>
+      <td valign="top" class="td6">
+        <p class="p5"><span class="s3">Regular class</span></p>
+      </td>
+    </tr>
+    <tr>
+      <td valign="top" class="td7">
+        <p class="p5"><span class="s3"><b>14</b></span></p>
+      </td>
+      <td valign="top" class="td8">
+        <p class="p5"><span class="s3">December 11, 2026</span></p>
+      </td>
+      <td valign="top" class="td9">
+        <p class="p5"><span class="s3">Regular class</span></p>
+      </td>
+    </tr>
+    <tr>
+      <td valign="top" class="td4">
+        <p class="p5"><span class="s3"><b>15</b></span></p>
+      </td>
+      <td valign="top" class="td5">
+        <p class="p5"><span class="s3">December 18, 2026</span></p>
+      </td>
+      <td valign="top" class="td6">
+        <p class="p5"><span class="s3">Regular class</span></p>
+      </td>
+    </tr>
+    <tr>
+      <td valign="top" class="td7">
+        <p class="p5"><span class="s3"><b>16</b></span></p>
+      </td>
+      <td valign="top" class="td8">
+        <p class="p5"><span class="s3">December 25, 2026</span></p>
+      </td>
+      <td valign="top" class="td9">
+        <p class="p5"><span class="s3">Regular class</span></p>
+      </td>
+    </tr>
+  </tbody>
+</table>
+<p class="p8"><span class="s3">Fudan weeks 17–18 (December 28, 2026–January 8, 2027) are reserved for final examinations, with regular classes suspended. January 1 is the New Year’s Day holiday; it is not a regular meeting of this course.</span></p>
+<p class="p11"><span class="s3">Calendar information checked on September 8, 2026.</span></p>
+<h2 style="margin: 0.0px 0.0px 6.0px 0.0px; font: 24.0px Georgia; color: #191c1f; -webkit-text-stroke: #191c1f"><span class="s3">Lectures</span></h2>
+<p class="p8"><span class="s3">Lecture notes and recordings will be posted here when available.</span></p>
+<h2 style="margin: 0.0px 0.0px 6.0px 0.0px; font: 24.0px Georgia; color: #191c1f; -webkit-text-stroke: #191c1f"><span class="s3">Homework assignments</span></h2>
+<p class="p8"><span class="s3">To be announced.</span></p>
+<h2 style="margin: 0.0px 0.0px 6.0px 0.0px; font: 24.0px Georgia; color: #191c1f; -webkit-text-stroke: #191c1f"><span class="s3">Projects</span></h2>
+<p class="p8"><span class="s3">To be announced.</span></p>
+<h2 style="margin: 0.0px 0.0px 6.0px 0.0px; font: 24.0px Georgia; color: #191c1f; -webkit-text-stroke: #191c1f"><span class="s3">References</span></h2>
+<p class="p8"><span class="s3">To be announced.</span></p>
+<p class="p12"><span class="s1"><a href="file:///Users/chenglongneo/Documents/GitHub/chenglongyu.github.io/index.html">Back to homepage<span class="s12"></span></a></span></p>
 </body>
 </html>
